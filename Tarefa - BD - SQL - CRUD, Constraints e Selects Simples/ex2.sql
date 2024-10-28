@@ -69,8 +69,8 @@ insert into filme values
 (1001, 'Whiplash', 2015),
 (1002, 'Birdman', 2015),
 (1003, 'Interestelar', 2014),
-(1004, 'A Culpa é das estrelas', 2014),
-(1005, 'Alexandre e o Dia Terrível, Horrível, Espantoso e Horroroso', 2014),
+(1004, 'A Culpa Ã© das estrelas', 2014),
+(1005, 'Alexandre e o Dia TerrÃ­vel, HorrÃ­vel, Espantoso e Horroroso', 2014),
 (1006, 'Sing', 2016)
 
 go
@@ -107,13 +107,13 @@ insert into dvd values
 
 go
 insert into cliente values
-(5501, 'Matilde Luz', 'Rua Síria', 150, '03086040'),
+(5501, 'Matilde Luz', 'Rua SÃ­ria', 150, '03086040'),
 (5502, 'Carlos Carreiro', 'Rua Bartolomeu Aires', 1250, '04419110')
 insert into cliente (num_cadastro, nome, logradouro, num) values
 (5503, 'Daniel Ramalho', 'Rua Itajutiba', 169),
 (5504, 'Roberta Bento', 'Rua Jayme Von Rosenburg', 36)
 insert into cliente values
-(5505, 'Rosa Cerqueira', 'Rua Arnaldo Simões Pinto', 235, '02917110')
+(5505, 'Rosa Cerqueira', 'Rua Arnaldo SimÃµes Pinto', 235, '02917110')
 
 go
 insert into locacao values
@@ -187,7 +187,7 @@ select * from estrela
 where nome like('Steve%')
 
 go
-select filmeId, convert(char(11), data_fabricacao, 101) as fab from dvd
+select filmeId, convert(char(10), data_fabricacao, 103) as fab from dvd
 where data_fabricacao > '01/01/2020'
 
 go
