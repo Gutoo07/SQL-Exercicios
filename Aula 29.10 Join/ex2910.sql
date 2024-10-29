@@ -73,6 +73,20 @@ on mat.id = nt.id_materia
 inner join avaliacoes av
 on nt.id_avaliacao = av.id
 where mat.nome like 'Banco%'
+--order by al.nome asc
+order by nota_calculada asc
+------------------------------
+select
+	substring(al.ra, 1, 9)+'-'+substring(al.ra, 10, 1) as ra,
+	al.nome, nt.nota as nota, av.peso as peso, cast(nt.nota * av.peso as decimal(7,2)) as nota_calculada, mat.nome as disciplina
+from alunos al
+inner join notas nt
+on al.ra = nt.ra_aluno
+inner join materias mat
+on nt.id_materia = mat.id
+inner join avaliacoes av
+on av.id = nt.id_avaliacao
+where mat.nome like 'Banco%'
 order by al.nome asc
 
 --Exercicios
@@ -85,6 +99,7 @@ from alunos al LEFT OUTER JOIN alunomateria am
 on al.ra = am.ra_aluno
 where am.ra_aluno IS NULL
 
+--Exercicios
 --Fazer uma consulta que retorne o RA mascarado, 
 --o nome dos alunos, o nome da matéria, 
 --a nota, o tipo da avaliação, dos alunos que tiraram 
